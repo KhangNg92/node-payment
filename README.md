@@ -3,7 +3,7 @@
 
 A Node-Wikis,  Responsive front-end design done with Bootstrap
 
-View the <a href = "https://infinite-tor-10968.herokuapp.com/">site</a>
+View the <a href = "https://nodejs-payment.herokuapp.com/">site</a>
 
 ## Technologies & Tools
 
