@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+
+  <body>
+
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
+
+      <h1>Personal Wikis</h1>
+
+      <ul class="list-group">
+
+        <% wikis.forEach((wiki) => { %>
+
+          <h1><%- wiki.collaborators %></h1>
+
+
+          <li class="list-group-item">
+
+            <% if(wiki) { %>
+
+                <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
+
+            <% } %>
+
+          </li>
+
+        <% }) %>
+
+      </ul>
+
+      <div class="container text-center">
+         <a href="/wikis/new" class="btn btn-success">New Wiki</a>
+      </div>
+
+
+    </main>
+
+  </body>
+
+</html>

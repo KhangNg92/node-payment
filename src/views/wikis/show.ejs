@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+
+      <% include ../static/partials/messages.ejs %>
+
+      <h1><%- wikiMarkdown.title %></h1>
+
+      <% if(wikiMarkdown.userId == wikiMarkdown.currentUserid) { %>
+
+      <a href="/wikis/<%= wikiMarkdown.id %>/edit" class="btn btn-warning">Edit</a>
+
+           <form style="display:initial" action="/wikis/<%=wikiMarkdown.id%>/destroy" method="post">
+              <button type="submit" class="btn btn-danger">Delete</button>
+           </form>
+
+         <% } %>
+
+      <h3><%- wikiMarkdown.body %></h3>
+
+      <ul>
+          <% for(var i=0; i<collaborators.length; i++) {%>
+            <li><%= collaborators[i].userId %></li>
+          <% } %>
+      </ul>
+
+
+      <% if(wikiMarkdown.userId == wikiMarkdown.currentUserId) { %>
+
+          <div class="add-collabs">
+            <a href="<%= wikiMarkdown.id %>/collaborators" class="btn btn-success">Edit Collaborators</a>
+          </div>
+
+      <% } %>
+
+
+
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+
+</html>
